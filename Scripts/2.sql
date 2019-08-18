@@ -1,0 +1,5 @@
+CREATE TABLE CrackersList
+(
+CrackerId INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+CrackerName VARCHAR(MAX)
+)

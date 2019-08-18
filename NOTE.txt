@@ -1,0 +1,1 @@
+Run All The Scripts in order inside the scripts folder before running the application.
