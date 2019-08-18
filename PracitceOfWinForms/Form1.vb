@@ -18,6 +18,7 @@ Public Class Form1
 
         Try
             Dim str As String = ConfigurationManager.ConnectionStrings("CrudConnection").ConnectionString
+            'To use ConfigurationManager Make Sure that the System.Data.Configuration is added as the reference to the project Directory in Solution Explorer
             Dim Con As New SqlConnection(str)
             'Dim DBConnection As New SqlConnection(ConfigurationManager.ConnectionStrings("My_ConnectionString").ConnectionString)
 
