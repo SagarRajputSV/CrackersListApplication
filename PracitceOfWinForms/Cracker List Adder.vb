@@ -4,6 +4,10 @@ Imports System.Data.SqlClient
 
 Public Class Form1
 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Login.Hide()
+    End Sub
+
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         If TxtCrackerName.Text = "" Then
             MessageBox.Show("Enter the caracker Name")
@@ -52,5 +56,6 @@ Public Class Form1
         Next
         Return dt
     End Function
+
 
 End Class
