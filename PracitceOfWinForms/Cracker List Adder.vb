@@ -1,5 +1,7 @@
 ﻿Imports System.Configuration
 Imports System.Data.SqlClient
+Imports System.IO
+
 
 
 Public Class Form1
@@ -57,5 +59,25 @@ Public Class Form1
         Return dt
     End Function
 
+    Private Sub BtnRefresh_Click(sender As Object, e As EventArgs) Handles BtnRefresh.Click
 
+        Dim str As String = ConfigurationManager.ConnectionStrings("CrudConnection").ConnectionString
+        Dim con = New SqlConnection(str)
+
+        Dim cmd = New SqlCommand()
+        cmd.Connection = con
+        cmd.CommandText = "SpFetchAll"
+        cmd.CommandType = CommandType.StoredProcedure
+
+        con.Open()
+
+        Dim adap As SqlDataAdapter
+        adap = New SqlDataAdapter(cmd)
+        Dim ds = New DataSet()
+
+        adap.Fill(ds, "Listtable")
+
+
+        For Each items In ds
+    End Sub
 End Class
