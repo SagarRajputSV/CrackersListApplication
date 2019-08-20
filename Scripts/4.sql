@@ -10,7 +10,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<The stored Procedure to insert the data to CrackersList Table>
 -- =============================================
-ALTER PROCEDURE [dbo].[SpInsert]
+CREATE PROCEDURE [dbo].[SpInsert]
 (
 @CrackerListTable CrackersTableType READONLY
 )

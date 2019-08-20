@@ -24,15 +24,17 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.BtnAdd = New System.Windows.Forms.Button()
-        Me.BtnSave = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.AddTab = New System.Windows.Forms.TabPage()
         Me.TxtCrackerName = New System.Windows.Forms.TextBox()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnSave = New System.Windows.Forms.Button()
+        Me.BtnAdd = New System.Windows.Forms.Button()
         Me.ListTab = New System.Windows.Forms.TabPage()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.TxtLstSearch = New System.Windows.Forms.TextBox()
         Me.BtnRefresh = New System.Windows.Forms.Button()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.BtnFilter = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.AddTab.SuspendLayout()
         Me.ListTab.SuspendLayout()
@@ -47,45 +49,6 @@ Partial Class Form1
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(787, 402)
         Me.TabControl1.TabIndex = 5
-        '
-        'BtnAdd
-        '
-        Me.BtnAdd.Location = New System.Drawing.Point(486, 66)
-        Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Size = New System.Drawing.Size(81, 32)
-        Me.BtnAdd.TabIndex = 2
-        Me.BtnAdd.Text = "Add"
-        Me.BtnAdd.UseVisualStyleBackColor = True
-        '
-        'BtnSave
-        '
-        Me.BtnSave.Location = New System.Drawing.Point(492, 271)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(75, 23)
-        Me.BtnSave.TabIndex = 4
-        Me.BtnSave.Text = "Save"
-        Me.BtnSave.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(103, 71)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(184, 20)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Enter The Cracker Name"
-        '
-        'ListBox1
-        '
-        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 16
-        Me.ListBox1.Location = New System.Drawing.Point(263, 146)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(200, 148)
-        Me.ListBox1.TabIndex = 0
         '
         'AddTab
         '
@@ -111,10 +74,51 @@ Partial Class Form1
         Me.TxtCrackerName.Size = New System.Drawing.Size(186, 20)
         Me.TxtCrackerName.TabIndex = 5
         '
+        'ListBox1
+        '
+        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 16
+        Me.ListBox1.Location = New System.Drawing.Point(263, 146)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(200, 148)
+        Me.ListBox1.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label1.Location = New System.Drawing.Point(103, 71)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(184, 20)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Enter The Cracker Name"
+        '
+        'BtnSave
+        '
+        Me.BtnSave.Location = New System.Drawing.Point(492, 271)
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSave.TabIndex = 4
+        Me.BtnSave.Text = "Save"
+        Me.BtnSave.UseVisualStyleBackColor = True
+        '
+        'BtnAdd
+        '
+        Me.BtnAdd.Location = New System.Drawing.Point(486, 66)
+        Me.BtnAdd.Name = "BtnAdd"
+        Me.BtnAdd.Size = New System.Drawing.Size(81, 32)
+        Me.BtnAdd.TabIndex = 2
+        Me.BtnAdd.Text = "Add"
+        Me.BtnAdd.UseVisualStyleBackColor = True
+        '
         'ListTab
         '
         Me.ListTab.BackgroundImage = Global.PracitceOfWinForms.My.Resources.Resources.BackgroundImage
         Me.ListTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ListTab.Controls.Add(Me.BtnFilter)
+        Me.ListTab.Controls.Add(Me.TxtLstSearch)
         Me.ListTab.Controls.Add(Me.BtnRefresh)
         Me.ListTab.Controls.Add(Me.ListBox2)
         Me.ListTab.Location = New System.Drawing.Point(4, 22)
@@ -124,13 +128,12 @@ Partial Class Form1
         Me.ListTab.Text = "List"
         Me.ListTab.UseVisualStyleBackColor = True
         '
-        'ListBox2
+        'TxtLstSearch
         '
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(144, 38)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(302, 303)
-        Me.ListBox2.TabIndex = 0
+        Me.TxtLstSearch.Location = New System.Drawing.Point(539, 38)
+        Me.TxtLstSearch.Name = "TxtLstSearch"
+        Me.TxtLstSearch.Size = New System.Drawing.Size(122, 20)
+        Me.TxtLstSearch.TabIndex = 2
         '
         'BtnRefresh
         '
@@ -140,6 +143,23 @@ Partial Class Form1
         Me.BtnRefresh.TabIndex = 1
         Me.BtnRefresh.Text = "Refresh"
         Me.BtnRefresh.UseVisualStyleBackColor = True
+        '
+        'ListBox2
+        '
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.Location = New System.Drawing.Point(144, 38)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(302, 303)
+        Me.ListBox2.TabIndex = 0
+        '
+        'BtnFilter
+        '
+        Me.BtnFilter.Location = New System.Drawing.Point(640, 77)
+        Me.BtnFilter.Name = "BtnFilter"
+        Me.BtnFilter.Size = New System.Drawing.Size(75, 23)
+        Me.BtnFilter.TabIndex = 3
+        Me.BtnFilter.Text = "Filter"
+        Me.BtnFilter.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -155,6 +175,7 @@ Partial Class Form1
         Me.AddTab.ResumeLayout(False)
         Me.AddTab.PerformLayout()
         Me.ListTab.ResumeLayout(False)
+        Me.ListTab.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -169,4 +190,6 @@ Partial Class Form1
     Friend WithEvents ListTab As TabPage
     Friend WithEvents BtnRefresh As Button
     Friend WithEvents ListBox2 As ListBox
+    Friend WithEvents TxtLstSearch As TextBox
+    Friend WithEvents BtnFilter As Button
 End Class

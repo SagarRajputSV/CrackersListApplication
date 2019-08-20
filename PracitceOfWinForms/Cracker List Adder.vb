@@ -1,5 +1,7 @@
 ﻿Imports System.Configuration
 Imports System.Data.SqlClient
+Imports System.Windows.Forms.ListBox
+Imports System.Data
 Imports System.IO
 
 
@@ -8,6 +10,28 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Login.Hide()
+
+        Dim str As String = ConfigurationManager.ConnectionStrings("CrudConnection").ConnectionString
+        Dim con = New SqlConnection(str)
+
+        Dim cmd = New SqlCommand()
+        cmd.Connection = con
+        cmd.CommandText = "SpFetchAll"
+        cmd.CommandType = CommandType.StoredProcedure
+
+        con.Open()
+
+        Dim dt = New DataTable()
+        Dim adap = New SqlDataAdapter(cmd)
+
+        adap.Fill(dt)
+
+        ListBox2.DisplayMember = "CrackerName"
+        ListBox2.DataSource = dt
+
+
+        con.Close()
+
     End Sub
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
@@ -71,13 +95,44 @@ Public Class Form1
 
         con.Open()
 
-        Dim adap As SqlDataAdapter
-        adap = New SqlDataAdapter(cmd)
-        Dim ds = New DataSet()
+        Dim dt = New DataTable()
+        Dim adap = New SqlDataAdapter(cmd)
 
-        adap.Fill(ds, "Listtable")
+        adap.Fill(dt)
+
+        ListBox2.DisplayMember = "CrackerName"
+        ListBox2.DataSource = dt
 
 
-        For Each items In ds
+        con.Close()
+
+    End Sub
+
+    Private Sub BtnFilter_Click(sender As Object, e As EventArgs) Handles BtnFilter.Click
+        Dim str As String = ConfigurationManager.ConnectionStrings("CrudConnection").ConnectionString
+        Dim con = New SqlConnection(str)
+
+        Dim cmd = New SqlCommand()
+        cmd.Connection = con
+        cmd.CommandText = "SpFetchAll"
+        cmd.CommandType = CommandType.StoredProcedure
+
+        con.Open()
+
+        Dim dt = New DataTable()
+        Dim adap = New SqlDataAdapter(cmd)
+
+        adap.Fill(dt)
+
+        ListBox2.DisplayMember = "CrackerName"
+        ListBox2.DataSource = dt
+
+        If dt.Rows.Item(1).ItemArray(1) = TxtLstSearch.Text Then
+            dt = dt.Select("CrackerName= '" & TxtLstSearch.Text & "'").CopyToDataTable
+            ListBox2.DataSource = dt
+        End If
+
+
+        con.Close()
     End Sub
 End Class
