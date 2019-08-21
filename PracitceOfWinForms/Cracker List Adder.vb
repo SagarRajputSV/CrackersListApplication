@@ -47,10 +47,11 @@ Public Class Form1
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
         Try
-            Dim str As String = ConfigurationManager.ConnectionStrings("CrudConnection").ConnectionString
             'To use ConfigurationManager Make Sure that the System.Data.Configuration is added as the reference to the project Directory in Solution Explorer
+
+            Dim str As String = ConfigurationManager.ConnectionStrings("CrudConnection").ConnectionString
             Dim Con As New SqlConnection(str)
-            'Dim DBConnection As New SqlConnection(ConfigurationManager.ConnectionStrings("My_ConnectionString").ConnectionString)
+
 
             Con.Open()
 
@@ -127,11 +128,40 @@ Public Class Form1
         ListBox2.DisplayMember = "CrackerName"
         ListBox2.DataSource = dt
 
-        If dt.Rows.Item(1).ItemArray(1) = TxtLstSearch.Text Then
-            dt = dt.Select("CrackerName= '" & TxtLstSearch.Text & "'").CopyToDataTable
-            ListBox2.DataSource = dt
-        End If
+        'The Below method demonstrates the way to loop through each record in datatable and obtain a single datarow from the datatable
 
+        'Dim i As Byte
+        'For i = 0 To dt.Rows.Count
+        '    If dt.Rows.Item(i).ItemArray(1) = TxtLstSearch.Text Then
+        '        dt = dt.Select("CrackerName ='" & TxtLstSearch.Text & "'").CopyToDataTable
+        '        ListBox2.DataSource = dt
+        '        Exit For
+        '    End If
+        'Next
+
+        'The datatable can be converted to a IEnumberable which allows us to use linq on it
+        'But as it returns a datarow and datarow cannot be used as a DataSource to an element it should be 
+        'added explicitly as a row to a table
+        'but before adding the row all the older rows should be removed
+
+        Dim Cracker As DataRow = dt.AsEnumerable().Where(Function(x) x.Field(Of String)("CrackerName") = TxtLstSearch.Text).Single()
+        Dim dr As DataRow
+
+        dr("CrackerName") = Cracker.ItemArray()
+        dt.Clear() 'Removing all the existing DataRows
+        dt.ImportRow(Cracker)
+        dt.Rows.Add(dr)
+        ListBox2.DataSource = dt
+
+        'DataTable.Select Will return an array of a datarow which contains a text in a particular column the value of the text
+        'should be within a single quote for example we find a record which contains sagar in a column Name then it should be
+        'dt.Select("Name='Sagar'")
+        'This returns an array of datarow 
+        'Thus Dim row() As DataRow = dt.Select("Name='Sagar'")
+        'If it should be copied to a datatable use .CopyToDataTable
+
+        'dt = dt.Select("CrackerName='" & TxtLstSearch.Text & "'").CopyToDataTable
+        'ListBox2.DataSource = dt
 
         con.Close()
     End Sub
