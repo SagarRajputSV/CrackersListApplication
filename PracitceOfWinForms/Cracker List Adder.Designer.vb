@@ -31,10 +31,11 @@ Partial Class Form1
         Me.BtnSave = New System.Windows.Forms.Button()
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.ListTab = New System.Windows.Forms.TabPage()
+        Me.BtnFilter = New System.Windows.Forms.Button()
         Me.TxtLstSearch = New System.Windows.Forms.TextBox()
         Me.BtnRefresh = New System.Windows.Forms.Button()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
-        Me.BtnFilter = New System.Windows.Forms.Button()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabControl1.SuspendLayout()
         Me.AddTab.SuspendLayout()
         Me.ListTab.SuspendLayout()
@@ -44,6 +45,7 @@ Partial Class Form1
         '
         Me.TabControl1.Controls.Add(Me.AddTab)
         Me.TabControl1.Controls.Add(Me.ListTab)
+        Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Location = New System.Drawing.Point(1, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -128,6 +130,15 @@ Partial Class Form1
         Me.ListTab.Text = "List"
         Me.ListTab.UseVisualStyleBackColor = True
         '
+        'BtnFilter
+        '
+        Me.BtnFilter.Location = New System.Drawing.Point(640, 77)
+        Me.BtnFilter.Name = "BtnFilter"
+        Me.BtnFilter.Size = New System.Drawing.Size(75, 23)
+        Me.BtnFilter.TabIndex = 3
+        Me.BtnFilter.Text = "Filter"
+        Me.BtnFilter.UseVisualStyleBackColor = True
+        '
         'TxtLstSearch
         '
         Me.TxtLstSearch.Location = New System.Drawing.Point(539, 38)
@@ -152,14 +163,16 @@ Partial Class Form1
         Me.ListBox2.Size = New System.Drawing.Size(302, 303)
         Me.ListBox2.TabIndex = 0
         '
-        'BtnFilter
+        'TabPage1
         '
-        Me.BtnFilter.Location = New System.Drawing.Point(640, 77)
-        Me.BtnFilter.Name = "BtnFilter"
-        Me.BtnFilter.Size = New System.Drawing.Size(75, 23)
-        Me.BtnFilter.TabIndex = 3
-        Me.BtnFilter.Text = "Filter"
-        Me.BtnFilter.UseVisualStyleBackColor = True
+        Me.TabPage1.BackgroundImage = Global.PracitceOfWinForms.My.Resources.Resources.BackgroundImage
+        Me.TabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(779, 376)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "ListByType"
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -192,4 +205,5 @@ Partial Class Form1
     Friend WithEvents ListBox2 As ListBox
     Friend WithEvents TxtLstSearch As TextBox
     Friend WithEvents BtnFilter As Button
+    Friend WithEvents TabPage1 As TabPage
 End Class
