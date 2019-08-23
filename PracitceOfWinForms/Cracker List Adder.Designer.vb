@@ -22,6 +22,13 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("OnGround")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("OnSky")
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Explosive", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2})
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("HandHeld")
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("GroundPlaced")
+        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Fancy", New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode5})
+        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("All", New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode6})
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.AddTab = New System.Windows.Forms.TabPage()
@@ -36,9 +43,12 @@ Partial Class Form1
         Me.BtnRefresh = New System.Windows.Forms.Button()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
+        Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.TabControl1.SuspendLayout()
         Me.AddTab.SuspendLayout()
         Me.ListTab.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -167,12 +177,44 @@ Partial Class Form1
         '
         Me.TabPage1.BackgroundImage = Global.PracitceOfWinForms.My.Resources.Resources.BackgroundImage
         Me.TabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TabPage1.Controls.Add(Me.ListBox3)
+        Me.TabPage1.Controls.Add(Me.TreeView1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Size = New System.Drawing.Size(779, 376)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "ListByType"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TreeView1
+        '
+        Me.TreeView1.Location = New System.Drawing.Point(0, 0)
+        Me.TreeView1.Name = "TreeView1"
+        TreeNode1.Name = "NodeExplosiveOnGround"
+        TreeNode1.Text = "OnGround"
+        TreeNode2.Name = "NodeExplosiveOnSky"
+        TreeNode2.Text = "OnSky"
+        TreeNode3.Name = "NodeExplosive"
+        TreeNode3.Text = "Explosive"
+        TreeNode4.Name = "NodeFancyHandHeld"
+        TreeNode4.Text = "HandHeld"
+        TreeNode5.Name = "NodeFancyGroudPlaced"
+        TreeNode5.Text = "GroundPlaced"
+        TreeNode6.Name = "NodeFancy"
+        TreeNode6.Text = "Fancy"
+        TreeNode7.Name = "NodeAll"
+        TreeNode7.Text = "All"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode7})
+        Me.TreeView1.Size = New System.Drawing.Size(156, 369)
+        Me.TreeView1.TabIndex = 0
+        '
+        'ListBox3
+        '
+        Me.ListBox3.FormattingEnabled = True
+        Me.ListBox3.Location = New System.Drawing.Point(231, 4)
+        Me.ListBox3.Name = "ListBox3"
+        Me.ListBox3.Size = New System.Drawing.Size(340, 355)
+        Me.ListBox3.TabIndex = 1
         '
         'Form1
         '
@@ -189,6 +231,7 @@ Partial Class Form1
         Me.AddTab.PerformLayout()
         Me.ListTab.ResumeLayout(False)
         Me.ListTab.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -206,4 +249,6 @@ Partial Class Form1
     Friend WithEvents TxtLstSearch As TextBox
     Friend WithEvents BtnFilter As Button
     Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents ListBox3 As ListBox
+    Friend WithEvents TreeView1 As TreeView
 End Class
