@@ -11,26 +11,6 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Login.Hide()
 
-        Dim str As String = ConfigurationManager.ConnectionStrings("CrudConnection").ConnectionString
-        Dim con = New SqlConnection(str)
-
-        Dim cmd = New SqlCommand()
-        cmd.Connection = con
-        cmd.CommandText = "SpFetchAll"
-        cmd.CommandType = CommandType.StoredProcedure
-
-        con.Open()
-
-        Dim dt = New DataTable()
-        Dim adap = New SqlDataAdapter(cmd)
-
-        adap.Fill(dt)
-
-        ListBox2.DisplayMember = "CrackerName"
-        ListBox2.DataSource = dt
-
-
-        con.Close()
 
     End Sub
 
@@ -165,4 +145,27 @@ Public Class Form1
 
         con.Close()
     End Sub
+
+    Public Function BindToListBox()
+        Dim str As String = ConfigurationManager.ConnectionStrings("CrudConnection").ConnectionString
+        Dim con = New SqlConnection(str)
+
+        Dim cmd = New SqlCommand()
+        cmd.Connection = con
+        cmd.CommandText = "SpFetchAll"
+        cmd.CommandType = CommandType.StoredProcedure
+
+        con.Open()
+
+        Dim dt = New DataTable()
+        Dim adap = New SqlDataAdapter(cmd)
+
+        adap.Fill(dt)
+
+        ListBox2.DisplayMember = "CrackerName"
+        ListBox2.DataSource = dt
+
+
+        con.Close()
+    End Function
 End Class

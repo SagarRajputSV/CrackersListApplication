@@ -39,3 +39,11 @@ C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\bin\D
 C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\obj\Debug\PracitceOfWinForms.exe
 C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\obj\Debug\PracitceOfWinForms.xml
 C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\obj\Debug\PracitceOfWinForms.pdb
+C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\bin\Debug\PracitceOfWinForms.exe
+C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\bin\Debug\PracitceOfWinForms.pdb
+C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\bin\Debug\PracitceOfWinForms.xml
+C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\obj\Debug\PracitceOfWinForms.vbprojResolveAssemblyReference.cache
+C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\obj\Debug\PracitceOfWinForms.Form1.resources
+C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\obj\Debug\PracitceOfWinForms.Login.resources
+C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\obj\Debug\PracitceOfWinForms.Resources.resources
+C:\Users\sagar.rajput\Desktop\Crackers List Application\PracitceOfWinForms\obj\Debug\PracitceOfWinForms.vbproj.GenerateResource.Cache

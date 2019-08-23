@@ -43,8 +43,8 @@ Partial Class Form1
         Me.BtnRefresh = New System.Windows.Forms.Button()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.ListBox3 = New System.Windows.Forms.ListBox()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.TabControl1.SuspendLayout()
         Me.AddTab.SuspendLayout()
         Me.ListTab.SuspendLayout()
@@ -186,8 +186,17 @@ Partial Class Form1
         Me.TabPage1.Text = "ListByType"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'ListBox3
+        '
+        Me.ListBox3.FormattingEnabled = True
+        Me.ListBox3.Location = New System.Drawing.Point(231, 4)
+        Me.ListBox3.Name = "ListBox3"
+        Me.ListBox3.Size = New System.Drawing.Size(340, 355)
+        Me.ListBox3.TabIndex = 1
+        '
         'TreeView1
         '
+        Me.TreeView1.CheckBoxes = True
         Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
         TreeNode1.Name = "NodeExplosiveOnGround"
@@ -207,14 +216,6 @@ Partial Class Form1
         Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode7})
         Me.TreeView1.Size = New System.Drawing.Size(156, 369)
         Me.TreeView1.TabIndex = 0
-        '
-        'ListBox3
-        '
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.Location = New System.Drawing.Point(231, 4)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(340, 355)
-        Me.ListBox3.TabIndex = 1
         '
         'Form1
         '
